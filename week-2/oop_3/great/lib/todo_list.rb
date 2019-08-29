@@ -10,12 +10,18 @@ class TodoList
   end
 
   def get(index)
-    all[index]
+    @todos[index]
   end
 
-  private
-
-  def all
-    @todos
+  def to_string
+  a = @todos.each_with_index.map do |todo, index|
+      "#{index + 1}. #{todo.give_description}"
+    end
+a.join("\n")
   end
+
+def set_complete(number)
+  @todos[number].completed
+end
+
 end
